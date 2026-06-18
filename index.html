@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -10,52 +11,78 @@
     <!-- Google Fonts (Pixelify Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
 
     <title>Document</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <img class="header-logo" src="img/logo.png" height="32" />
-        <div class="nav">
-          <div class="nav-link">
-            <a href="#">about</a>
-          </div>
-          <div class="nav-link">
-            <a href="#">resume</a>
-          </div>
-          <div class="nav-link">
-            <a href="#">projects</a>
-          </div>
-          <div class="nav-link">
-            <a href="#">contact</a>
-          </div>
-        </div>
-        <div class="header-btns">
-          <button
-            class="theme-btn"
-            id="themeBtn"
-            aria-label="Toggle theme"
-            type="button"
-          ></button>
-        </div>
-      </div>
+</head>
 
-      <div class="intro">
-        <div class="intro-hero">
-          <img class="intro-hero-img" src="img/intro-hero.gif" width="200" />
+<body>
+    <div class="container">
+        <div class="header">
+            <img class="header-logo" src="img/logo.png" height="32" />
+            <div class="nav">
+                <div class="nav-link">
+                    <a href="#">about</a>
+                </div>
+                <div class="nav-link">
+                    <a href="#">resume</a>
+                </div>
+                <div class="nav-link">
+                    <a href="#">projects</a>
+                </div>
+                <div class="nav-link">
+                    <a href="#">contact</a>
+                </div>
+            </div>
+            <div class="header-btns">
+                <button
+                    id="themeBtn" 
+                    class="theme-btn" 
+                    aria-label="Toggle theme" 
+                    type="button"
+                    data-theme="light"
+                >
+                    <img class="theme-btn-logo" src="img/frog-theme-logo.svg" />
+                </button>
+            </div>
         </div>
-        <p class="intro-text">
-          I create web interfaces for GIS projects, combining interactive maps,
-          geoportals, and spatial data visualization into clear and
-          user-friendly digital products at the intersection of frontend
-          development, cartography, and analytics.
-        </p>
-      </div>
+
+        <div class="intro">
+            <div class="intro-hero">
+                <img class="intro-hero-img" src="img/intro-hero.gif" width="200" />
+            </div>
+            <p class="intro-text">
+                I create web interfaces for GIS projects, combining interactive maps,
+                geoportals, and spatial data visualization into clear and
+                user-friendly digital products at the intersection of frontend
+                development, cartography, and analytics.
+            </p>
+        </div>
     </div>
-  </body>
+
+    <script>
+        const themeBtn = document.getElementById("themeBtn");
+        const themeBtnLogo = document.querySelector(".theme-btn-logo");
+
+        themeBtn.addEventListener("click", () => {
+            const isDark = themeBtn.dataset.theme === "dark";
+
+            themeBtnLogo.classList.remove(
+                "theme-btn-logo--to-dark",
+                "theme-btn-logo--to-light"
+            );
+
+            void themeBtnLogo.offsetWidth;
+
+            if (isDark) {
+                themeBtnLogo.classList.add("theme-btn-logo--to-light");
+                themeBtn.dataset.theme = "light";
+            } else {
+                themeBtnLogo.classList.add("theme-btn-logo--to-dark");
+                themeBtn.dataset.theme = "dark";
+            }
+        })
+    </script>
+</body>
+
 </html>

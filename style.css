@@ -1,57 +1,79 @@
 body {
-  font-family: "Pixelify Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .container {
-  margin: 16px auto 0;
-  width: 100%;
-  max-width: 1140px;
+    margin: 16px auto 0;
+    width: 100%;
+    max-width: 1140px;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav {
-  display: flex;
-  gap: 64px;
+    display: flex;
+    gap: 64px;
 }
 
 .nav-link a {
-  font-size: 20px;
-  color: #000;
-  text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
 }
 
 .theme-btn {
-  --frame-width: 32px;
-  --frame-height: 32px;
-  --gap: 32px;
+    padding: 0;
 
-  width: var(--frame-width);
-  height: var(--frame-height);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 
-  background-image: url("img/frog-theme-logo.svg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
-
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
 }
 
+.theme-btn-logo--to-dark {
+    animation: toDark .5s steps(5) forwards;
+}
+
+.theme-btn-logo--to-light {
+    animation: toLight .5s steps(5) forwards;
+}
+
+@keyframes toDark {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-160px);
+    }
+}
+
+@keyframes toLight {
+    from {
+        transform: translateX(-160px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
 .intro {
-  margin: 50px 0;
+    margin: 50px 0;
 }
 
 .intro-hero {
-  text-align: center;
+    text-align: center;
 }
 
 .intro-text {
-  text-indent: 25px;
+    text-indent: 25px;
 }
