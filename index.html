@@ -13,13 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
 
-    <title>Document</title>
+    <title>frogrammer</title>
 </head>
 
-<body>
+<body data-theme="light">
     <div class="container">
         <div class="header">
-            <img class="header-logo" src="img/logo.png" height="32" />
+            <img class="header-logo" src="img/logo-light.png" height="28" />
             <div class="nav">
                 <div class="nav-link">
                     <a href="#">about</a>
@@ -42,30 +42,46 @@
                     type="button"
                     data-theme="light"
                 >
-                    <img class="theme-btn-logo" src="img/frog-theme-logo.svg" />
+                    <img class="theme-btn-logo" src="img/frog-theme-sprite.png"/>
                 </button>
             </div>
         </div>
 
         <div class="intro">
-            <!-- <div class="intro-hero">
-                <img class="intro-hero-img" src="img/intro-hero.gif" width="200" />
-            </div> -->
-            <p class="intro-text">
-                I create web interfaces for GIS projects, combining interactive maps,
-                geoportals, and spatial data visualization into clear and
-                user-friendly digital products at the intersection of frontend
-                development, cartography, and analytics.
-            </p>
+            <div class="intro-hero">
+                <div class="intro-hero-img">
+                    <div class="intro-hero-img_clouds"></div>
+                    <img src="img/hero-mountain.png" alt="Hero Image Clouds" class="intro-hero-img_mountain">
+                </div>
+                <div class="intro-hero-caption">
+                     Pixel art based on a reference photo of Mount Verblyud (Talgar).
+                </div>
+            </div>
+            <div class="intro-text">
+               <p>
+                    Hi, my name is Dias. I am a web developer from Talgar, Almaty.
+               </p>
+               <p>
+                    I create web interfaces for GIS projects at <a class="link" href="https://ionos.kz">Insitute of Ionosphere</a> (Almaty), such as interactive maps, geoportals, and tools for working with spatial data. I focus on making complex geodata practical and easy to use.
+
+               </p>
+               <p>
+                    I also have basic knowledge of DevOps and understand how web projects are deployed and maintained.
+               </p>
+               <p>
+                    Outside of work, I enjoy playing Valorant and campaign.
+               </p>
+            </div>
         </div>
     </div>
 
     <script>
+        const headerLogo = document.querySelector(".header-logo");
         const themeBtn = document.getElementById("themeBtn");
         const themeBtnLogo = document.querySelector(".theme-btn-logo");
 
         themeBtn.addEventListener("click", () => {
-            const isDark = themeBtn.dataset.theme === "dark";
+            const isDark = document.body.dataset.theme === "dark";
 
             themeBtnLogo.classList.remove(
                 "theme-btn-logo--to-dark",
@@ -76,12 +92,23 @@
 
             if (isDark) {
                 themeBtnLogo.classList.add("theme-btn-logo--to-light");
+                document.body.dataset.theme = "light";
                 themeBtn.dataset.theme = "light";
+                headerLogo.src = "img/logo-light.png";
             } else {
                 themeBtnLogo.classList.add("theme-btn-logo--to-dark");
+                document.body.dataset.theme = "dark";
                 themeBtn.dataset.theme = "dark";
+                headerLogo.src = "img/logo-dark.png";
             }
         })
+
+        themeBtnLogo.addEventListener("animationend", () => {
+            themeBtnLogo.classList.remove(
+                "theme-btn-logo--to-dark",
+                "theme-btn-logo--to-light"
+            );
+        });
     </script>
 </body>
 
